@@ -3,12 +3,22 @@ import './Title.css'
 
 
 const Title = () => {
-    const [furstName, setfurstName] = useState(0);
-    console.log(furstName)
+    const [furstName, setfurstName] = useState('');
+    console.log("Affiche moi:"+ setfurstName )
+    
+    // const handleInputChange = (event) => {
+    //   setfurstName(event.target.value);}
+  
     return (
     <div className="TitleBox">
-      <label htmlFor="myInput">Titre :</label>
-      <input type="text" id="myInput" />
+      {/* <label htmlFor="myInput"></label> */}
+      <p>Hello {furstName}</p>
+      <input  className="input" 
+              type="text" id="myInput"
+              onChange={(e) => setfurstName(e.target.value)}
+              // {handleInputChange}
+              // {() => setfurstName(furstName )}
+      />
     </div>
   );
 

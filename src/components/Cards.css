@@ -1,20 +1,25 @@
-/* p{
-    color: white;
-}*/
+
 h1{
     margin-top: 0px;
     margin-bottom: 0px;
 }
-/*img{
-    background-color: aqua;
-} */
+
 .GlobalCard{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px 10px 20px 10px;
-    box-shadow: 0px 2px 5px rgb(55, 55, 55);
+    box-shadow: 6px 4px 5px rgb(55, 55, 55);
     margin: 10px;
     min-height: 90%;
+    background-color: #242424;
+    border-radius: 5%;
+    width: 450px;
+    height: 450px;
+}
+img{
+    max-width: 90%;
+    max-height: 90%;
+    clip-path:ellipse(33% 50%);
 }
