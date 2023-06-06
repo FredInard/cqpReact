@@ -1,0 +1,14 @@
+
+
+.Filter {
+display: flex;
+border: solid;
+width: 100px;
+height: 50px;
+align-items: center;
+justify-content: center;
+}
+button{
+width: 100px;
+height: 50px;
+}

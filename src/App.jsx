@@ -4,6 +4,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Cards from './components/Cards'
 import Title from './components/Title'
+import Filter from './components/Filter'
+
+
 
 const TabCaracters = [
 {
@@ -34,7 +37,7 @@ const TabCaracters = [
   descrip:"Jaskier est un Barde.",
   color: "blue",
   type : "male",
-  age : "30"
+  age : "30",
   poid : "70",
 },
 
@@ -45,7 +48,7 @@ const TabCaracters = [
   descrip:"Triss Merigold est une sorcière.",
   color: "blue",
   type : "Female",
-  age : "50"
+  age : "50",
   poid : "60",
 },
 
@@ -56,7 +59,7 @@ const TabCaracters = [
   descrip:"Vésémir est un Padré.",
   color: "blue",
   type : "male",
-  age : "40"
+  age : "40",
   poid : "90",
 },
 
@@ -67,7 +70,7 @@ const TabCaracters = [
   descrip:"Yennefer de Vengerberg est une sorcière.",
   color: "blue",
   type : "Female",
-  age : "100"
+  age : "100",
   poid : "55",
 },
 
@@ -78,7 +81,7 @@ const TabCaracters = [
   descrip:"Eredin Bréacc Glas est un Boss.",
   color: "blue",
   type : "male",
-  age : "100"
+  age : "100",
   poid : "100",
 },
 
@@ -89,71 +92,35 @@ const TabCaracters = [
   descrip:"Phillip Strenger est un Lord.",
   color: "blue",
   type : "male",
-  age : "100"
+  age : "100",
 },
 ];
 
 
+const App = () => {
+  const [filteredCharacters, setFilteredCharacters] = useState(TabCaracters);
 
-function App() {
- 
+  const handleFilter = () => {
+    const maleCharacters = TabCaracters.filter((character) => character.type === "male");
+    setFilteredCharacters(maleCharacters);
+  };
   return (
     <>
       < Title />
-      <div className='box'>
+     
         <div className='box2'>
           {TabCaracters.map((TabCaracters) => {
-            return < Cards clef={TabCaracters}/>
+            return < Cards clef={TabCaracters} key={TabCaracters.id}/>
             })}
           {/* < Cards clef={TabCaracters[0]}/> */}
         </div>
         
-        {/* <div className='box2'> 
-          < Cards img="https://www.tomsguide.fr/content/uploads/sites/2/2020/05/the-witcher-3-ciri.jpg"
-                  name="Ciri"
-                  descrip="Ciri est uns sorceleuse."
-          />
+        <div className="Filt">
+        <Filter />
         </div>
-        <div className='box2'> 
-          < Cards img="https://www.tomsguide.fr/content/uploads/sites/2/2020/09/jaskier.jpg"
-                  name="Jaskier"
-                  descrip="Ciri est un Barde."
-          />
-        </div>
-        <div className='box2'> 
-          < Cards img="https://www.tomsguide.fr/content/uploads/sites/2/2020/09/jaskier.jpg"
-                  name="Jaskier"
-                  descrip="Ciri est un Barde."
-          />
-        </div>
-        <div className='box2'> 
-          < Cards img="https://www.tomsguide.fr/content/uploads/sites/2/2020/09/jaskier.jpg"
-                  name="Jaskier"
-                  descrip="Ciri est un Barde."
-          />
-        </div>
-        <div className='box2'> 
-          < Cards img="https://cdn.akamai.steamstatic.com/steam/apps/370002/ss_4c485ae96035688946168813b1195c598695702f.1920x1080.jpg?t=1659619207"
-                  name="Yennefer de Vengerberg"
-                  descrip="Yennefer de Vengerberg est une sorcière."
-          />
-        </div>
-        <div className='box2'> 
-          < Cards img="https://staticdelivery.nexusmods.com/images/952/20423129-1519904230.jpg"
-                  name="Eredin Bréacc Glas"
-                  descrip="Eredin Bréacc Glas est un Boss."
-          />
-        </div>
-        <div className='box2'> 
-          < Cards img="https://static.wikia.nocookie.net/witcher/images/2/20/Tw3_journal_baron.png/revision/latest/scale-to-width-down/350?cb=20160702134425"
-                  name="Phillip Strenger"
-                  descrip="Phillip Strenger est un Lord."
-          /> 
-        </div>*/}
-      </div>
-   
+    
     </>
   )
 }
 
-export default App
+export default App;

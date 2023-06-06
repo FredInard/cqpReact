@@ -10,3 +10,8 @@ body{
     flex-wrap: wrap;
     justify-content: center;
 }
+.Filt{
+  display: flex;
+  justify-content: center;
+
+}
