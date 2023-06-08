@@ -8,6 +8,7 @@ import Filter from './components/Filter'
 
 
 
+
 const TabCaracters = [
 {
   id : 1,
@@ -97,30 +98,60 @@ const TabCaracters = [
 ];
 
 
+// const App = () => {
+//   const [filteredCharacters, setFilteredCharacters] = useState(TabCaracters);
+
+//   const handleFilter = () => {
+//     const maleCharacters = TabCaracters.filter((character) => character.type === "male");
+//     setFilteredCharacters(maleCharacters);
+//   };
+  
+
+//   return (
+//     <>
+//       < Title />
+     
+//         <div className='box2'>
+//           {TabCaracters.map((TabCaracters) => {
+//             return < Cards clef={TabCaracters} key={TabCaracters.id}/>
+//             })}
+//           {/* < Cards clef={TabCaracters[0]}/> */}
+//         </div>
+        
+//         <div className="Filt">
+//         <Filter handleFilter={handleFilter} />
+//         </div>
+    
+//     </>
+//   )
+// }
+
+// export default App;
+
+
 const App = () => {
   const [filteredCharacters, setFilteredCharacters] = useState(TabCaracters);
 
   const handleFilter = () => {
-    const maleCharacters = TabCaracters.filter((character) => character.type === "male");
+    const maleCharacters = TabCaracters.filter((character) => character.type === 'male');
     setFilteredCharacters(maleCharacters);
   };
+
   return (
     <>
-      < Title />
-     
-        <div className='box2'>
-          {TabCaracters.map((TabCaracters) => {
-            return < Cards clef={TabCaracters} key={TabCaracters.id}/>
-            })}
-          {/* < Cards clef={TabCaracters[0]}/> */}
-        </div>
-        
-        <div className="Filt">
-        <Filter />
-        </div>
-    
+      <Title />
+
+      <div className='box2'>
+        {filteredCharacters.map((character) => (
+          <Cards clef={character} key={character.id} />
+        ))}
+      </div>
+
+      <div className='Filt'>
+        <Filter handleFilter={handleFilter} />
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default App;
