@@ -1,12 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Cards from './components/Cards'
 import Title from './components/Title'
 import Filter from './components/Filter'
-
-
+import FilterF from './components/FilterF'
+import FilterComponent from './components/FilterComponent'
 
 
 const TabCaracters = [
@@ -88,7 +86,7 @@ const TabCaracters = [
 
 {
   id : 8,
-  img:"https://static.wikia.nocookie.net/witcher/images/2/20/Tw3_journal_baron.png/revision/latest/scale-to-width-down/350?cb=20160702134425",
+  img:"https://static1.personality-database.com/profile_images/46a2d85c5c24454c95729e6265b7db8f.png",
   Name:"Phillip Strenger",
   descrip:"Phillip Strenger est un Lord.",
   color: "blue",
@@ -112,7 +110,7 @@ const TabCaracters = [
 //       < Title />
      
 //         <div className='box2'>
-//           {TabCaracters.map((TabCaracters) => {
+//           {TabCaracters.map(TabCaracters) => {
 //             return < Cards clef={TabCaracters} key={TabCaracters.id}/>
 //             })}
 //           {/* < Cards clef={TabCaracters[0]}/> */}
@@ -137,6 +135,11 @@ const App = () => {
     setFilteredCharacters(maleCharacters);
   };
 
+  const handleFilterF = () => {
+    const femaleCharacters = TabCaracters.filter((character) => character.type === 'Female');
+    setFilteredCharacters(femaleCharacters);
+  };
+
   return (
     <>
       <Title />
@@ -150,6 +153,14 @@ const App = () => {
       <div className='Filt'>
         <Filter handleFilter={handleFilter} />
       </div>
+
+      <div className='Filt'>
+        <FilterF handleFilter={handleFilterF} />
+      </div>
+      
+    <div className='Filt'>
+      <FilterComponent/>
+    </div>
     </>
   );
 };
